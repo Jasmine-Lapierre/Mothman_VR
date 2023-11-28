@@ -631,7 +631,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -6207,7 +6207,7 @@ PrefabInstance:
     - target: {fileID: -3794525183046372743, guid: 5c38a2900145feb49babbd0ff1ff5aab,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5c38a2900145feb49babbd0ff1ff5aab,
         type: 3}
@@ -6250,6 +6250,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1675396200}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c38a2900145feb49babbd0ff1ff5aab,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1675396202}
     - targetCorrespondingSourceObject: {fileID: -3794525183046372743, guid: 5c38a2900145feb49babbd0ff1ff5aab,
         type: 3}
       insertIndex: -1
@@ -7531,7 +7535,19 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1675396202}
+        m_TargetAssemblyTypeName: onoff, Assembly-CSharp
+        m_MethodName: On
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 136592576}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -7638,6 +7654,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1675396202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675396197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952849b8f031783459252caf431e5dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1692014351 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6735691835005591839, guid: 88d49e5e8e207d648b6f5509f6094da3,
