@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/assets/our models/facetexturew.png.meta
+guid: facba0062fdbfc64499d55d59a1089c2
+========
 guid: 8def2f3670ea0494eb0f31bcf04da35d
+>>>>>>>> 5d29bbcdd294152fcde3b5e63be80cb88e7c2066:Assets/assets/our models/trees/tree_pack_1.1/models/bush04.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/assets/our models/girl-3023831_1280.jpg.meta
+guid: fe6787d8a6823e8408da22faa3c859b3
+========
 guid: 794163e1b9c9b444a925d0da31929d9f
+>>>>>>>> 5d29bbcdd294152fcde3b5e63be80cb88e7c2066:Assets/assets/our models/trees/tree_pack_1.1/models/bush05.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
