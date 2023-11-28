@@ -23,17 +23,17 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: facetexture
-    second: {fileID: 2800000, guid: e450712304652234e9b72210a939b7ae, type: 3}
+    second: {fileID: 2800000, guid: 9a899171d2a3d1f4993b0233f575d311, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: pants-4785535_1280
-    second: {fileID: 2800000, guid: 320dd0388bd22f04e872eebfe0c1360b, type: 3}
+    second: {fileID: 2800000, guid: 60cee2060383dbb4889d225541c79692, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: yipyip
-    second: {fileID: 2800000, guid: 870f60dffe90cdd499380ebf642fefb3, type: 3}
+    second: {fileID: 2800000, guid: 542cb0269d6b8a743addb587acee82c9, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
