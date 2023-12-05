@@ -11,6 +11,7 @@ TagManager:
   - mug
   - element
   - trash
+  - reception
   layers:
   - Default
   - TransparentFX

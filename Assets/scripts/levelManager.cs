@@ -22,7 +22,7 @@ public override string ToString()
     return "(" + name + "," + ")";
 }
 List<Recette> listofCurrentOrder = new List<Recette>();
-List<Recette> listofCurrentDrink = new List<Recette>();
+public   List<Recette> listofCurrentDrink = new List<Recette>();
 
  IDictionary<string, string> Commande = new Dictionary<string, string>();
 
@@ -37,12 +37,10 @@ listofRecettes.AddRange(new List<Recette>
     new Recette("eye", "ghost","float" ),
     new Recette("blood","zombie", "liquid" ),
     new Recette("ectoplasm","ghost", "liquid" ),*/
-    new Recette("liquid1","zombie", "liquid" ),
-    new Recette("liquid2","zombie", "liquid" ),
-    new Recette("liquid3","zombie", "liquid" ),
-    new Recette("float1","zombie", "float" ),
-    new Recette("float2","zombie", "float" ),
-    new Recette("float3","zombie", "float" ),
+    new Recette("liquide1test","zombie", "liquid" ),
+    new Recette("liquid2Test","zombie", "liquid" ),
+    new Recette("bone","zombie", "float" ),
+    new Recette("eye","zombie", "float" ),
      new Recette("liquid1Ghost","ghost", "liquid" ),
     new Recette("liquid2Ghost","ghost", "liquid" ),
     new Recette("liquid3Ghost","ghost", "liquid" ),
@@ -96,7 +94,7 @@ for (int i = 0; i < listofEverythingelse.Count; i++){
 }
 public void afficherCommande(List<Recette> commande){
 for(int i =0; i<commande.Count; i++){
-    Debug.Log(commande[i].Name);
+    Debug.Log(commande[i].Name + " ICI ICI ");
 }
 
 }
@@ -112,7 +110,7 @@ for(int i =0; i<commande.Count; i++){
 
  IDictionary<string, GameObject> floatPrefabsStringToGameObject = new Dictionary<string, GameObject>();
  void Start(){
-CreerCommande("ghost");
+CreerCommande("zombie");
 
 
 afficherCommande(listofCurrentOrder);
@@ -141,6 +139,8 @@ Transform[] children = MugTag.GetComponentsInChildren<Transform>();
 for(int i = 0; i < children.Length+1; i++){
     Debug.Log(MugTag.transform.GetChild(i).gameObject.name + "   " +elementName );
 if(MugTag.transform.GetChild(i).gameObject.name == elementName){
+if(MugTag.transform.GetChild(i).gameObject.activeSelf ==false){
+
    listofCurrentDrink.AddRange(new List<Recette>
 {
     new Recette(elementName,"","" ),
@@ -148,7 +148,63 @@ if(MugTag.transform.GetChild(i).gameObject.name == elementName){
  });
 afficherCommande(listofCurrentDrink);
    Debug.Log(MugTag.transform.GetChild(i).gameObject.name + " = " + elementName);
-    MugTag.transform.GetChild(i).gameObject.SetActive(true);
+    MugTag.transform.GetChild(i).gameObject.SetActive(true);} else{
+        afficherCommande(listofCurrentDrink);
+
+    }
 } 
 }
+}
+public void addLiquid(string elementName){
+List<Recette> isLiquid = new List<Recette>();
+for(int i = 0; i<listofCurrentDrink.Count; i++){
+if(listofCurrentDrink[i].Type =="liquid"){
+  isLiquid.Add(listofCurrentDrink[i]);
 }}
+if(isLiquid == null || isLiquid.Count< 1){
+{
+listofCurrentDrink.AddRange(new List<Recette>
+{
+    new Recette(elementName,"","liquid" ),
+
+ });
+         afficherCommande(listofCurrentDrink);
+
+}}
+
+else{
+            afficherCommande(listofCurrentDrink);
+
+}}
+
+public void comparerDrinks(){
+    
+    List<Recette> comparaisonlist = new List<Recette>();
+    for(int i = 0; i<listofCurrentOrder.Count;i++){
+        for(int index = 0; index<listofCurrentDrink.Count;index++){
+            if(listofCurrentDrink[index].Name == listofCurrentOrder[i].Name){
+                comparaisonlist.AddRange(new List<Recette>
+{
+    new Recette(listofCurrentDrink[index].Name,"","" ),
+
+ });
+ afficherCommande(comparaisonlist);
+ Debug.Log("Voici un ingredient: " + listofCurrentDrink[index].Name);
+                
+            }
+            else{Debug.Log("Pas un ingredient: " + listofCurrentDrink[index].Name);
+            }
+        }
+    }
+
+
+
+
+
+    if(comparaisonlist.Count == listofCurrentOrder.Count){
+        Debug.Log("C'est pareil");
+    }else{
+        Debug.Log("C'est pas pareil");
+    }
+}
+}
