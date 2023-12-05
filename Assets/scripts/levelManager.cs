@@ -20,14 +20,27 @@ public class levelManager : MonoBehaviour
 for (int i = 0;i < floatsPrefabs.Length; i++){
 
 floatPrefabsStringToGameObject.Add(floatsJar[i].tag , floatsPrefabs[i]);
-		foreach(KeyValuePair<string, GameObject> kvp in floatPrefabsStringToGameObject)
-			Debug.Log( kvp.Key + "  "+ kvp.Value);
+		foreach(KeyValuePair<string, GameObject> kvp in floatPrefabsStringToGameObject);
             
             }}
 
 public void creationFloat(string floatsName)
     {
-        Instantiate(floatPrefabsStringToGameObject[floatsName]);
+ GameObject floatElement = (GameObject) Instantiate(floatPrefabsStringToGameObject[floatsName]);
+ floatElement.name = floatElement.name.Remove(floatElement.name.Length-7);
 
     }
+
+
+public void addElement(string elementName){
+
+GameObject MugTag = GameObject.FindGameObjectWithTag("mug");
+Transform[] children = MugTag.GetComponentsInChildren<Transform>();
+for(int i = 0; i < children.Length+1; i++){
+    Debug.Log(MugTag.transform.GetChild(i).gameObject.name + "   " +elementName );
+if(MugTag.transform.GetChild(i).gameObject.name == elementName){
+   Debug.Log(MugTag.transform.GetChild(i).gameObject.name + " = " + elementName);
+    MugTag.transform.GetChild(i).gameObject.SetActive(true);
+} 
 }
+}}
