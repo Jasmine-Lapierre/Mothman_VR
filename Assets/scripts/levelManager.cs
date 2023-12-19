@@ -9,6 +9,7 @@ public class levelManager : MonoBehaviour
      [Header("References")]
     [SerializeField] private GameObject[] floatsPrefabs;
     [SerializeField] private GameObject[] floatsJar;
+    public string monstre;
 public class Recette
 { 
     public string Name;
@@ -26,31 +27,27 @@ public   List<Recette> listofCurrentDrink = new List<Recette>();
 
  IDictionary<string, string> Commande = new Dictionary<string, string>();
 
-public List<Recette> creerRecette( string monstre){
+public List<Recette> creerRecette(string monstre){
+    
 List<Recette> listofRecettes = new List<Recette>();
 List<Recette> listofRecettesSpepcialisee = new List<Recette>();
-Debug.Log("First Step");
 listofRecettes.AddRange(new List<Recette>
 {
-    
-   /* new Recette("bone", "zombie", "float" ),
-    new Recette("eye", "ghost","float" ),
+    new Recette("eyeball", "zombie", "float" ),
+    new Recette("brain", "zombie","float" ),
     new Recette("blood","zombie", "liquid" ),
-    new Recette("ectoplasm","ghost", "liquid" ),*/
-    new Recette("liquide1test","zombie", "liquid" ),
-    new Recette("liquid2Test","zombie", "liquid" ),
-    new Recette("bone","zombie", "float" ),
-    new Recette("eye","zombie", "float" ),
-     new Recette("liquid1Ghost","ghost", "liquid" ),
-    new Recette("liquid2Ghost","ghost", "liquid" ),
-    new Recette("liquid3Ghost","ghost", "liquid" ),
-    new Recette("float1Ghost","ghost", "float" ),
-    new Recette("float2Ghost","ghost", "float" ),
-    new Recette("float3Ghost","ghost", "float" ),
-
+    new Recette("flesh","zombie", "liquid" ),
+    new Recette("lantern","mothman", "float" ),
+    new Recette("lightbulb","mothman", "float" ),
+    new Recette("lighterFluid","mothman", "liquid" ),
+    new Recette("cocoonNectar","mothman", "liquid" ),
+    new Recette("chlorophyll","mothman", "liquid" ),
+    new Recette("ectoplasm","ghost", "float" ),
+    new Recette("ouijaPlanchette","ghost", "float" ),
+    new Recette("booJuice","ghost", "liquid" ),
+    new Recette("poltergeistSyrup","ghost", "liquid" ),
  });
 for (int i = 0; i < listofRecettes.Count; i++){
-    Debug.Log("Third Step");
  if(listofRecettes[i].Monster == monstre){
     Debug.Log(listofRecettes[i].Monster);
     listofRecettesSpepcialisee.Add(listofRecettes[i]);
@@ -58,7 +55,27 @@ for (int i = 0; i < listofRecettes.Count; i++){
 }
         return  listofRecettesSpepcialisee;
      }
-public void CreerCommande(string monstre){
+public void CreerCommande(){
+    
+    Random r = new System.Random();
+    int indexMonstre = r.Next(0,3);
+    Debug.Log(indexMonstre +  " Voici l'index");
+    switch (indexMonstre)
+    {
+        case 0:
+        monstre="mothman";
+        break;
+        case 1:
+        monstre="zombie";
+        break;
+        case 2:
+        monstre="ghost";
+        break;
+        
+        default:
+        Debug.Log("bug creation de recette");
+        break;
+    }
     
 listofCurrentOrder.Clear();
 
@@ -78,7 +95,7 @@ listofEverythingelse.Add(RecettesSpecialisees[i]);
     }
 }
 
-Random r = new System.Random();
+//Random r = new System.Random();
 /**/
 for (int i = 0; i < listofEverythingelse.Count; i++){
     int index = r.Next(0,2);
@@ -110,7 +127,7 @@ for(int i =0; i<commande.Count; i++){
 
  IDictionary<string, GameObject> floatPrefabsStringToGameObject = new Dictionary<string, GameObject>();
  void Start(){
-CreerCommande("zombie");
+CreerCommande();
 
 
 afficherCommande(listofCurrentOrder);
