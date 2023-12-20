@@ -4357,7 +4357,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1066482242}
         m_TargetAssemblyTypeName: menuControl, Assembly-CSharp
-        m_MethodName: fermerConsignes
+        m_MethodName: jouer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
