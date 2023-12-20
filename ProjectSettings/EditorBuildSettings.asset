@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scene/TeleportClipTest.unity
     guid: 90d56a5ee82f58c4c8dd99c432b03a3c
+  - enabled: 1
+    path: Assets/scene/menu.unity
+    guid: e7fa9211737845e4a91c96b9a8a8127b
+  - enabled: 1
+    path: Assets/scene/Jeu.unity
+    guid: 266743487c2305e479ab0982712038ed
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: aa9779c4865b7cb42ac582cfc04327d6,
       type: 2}
