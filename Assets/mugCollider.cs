@@ -7,6 +7,7 @@ public class mugCollider : MonoBehaviour
 
   public void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other + "AFFAIRE QUI AMRHCE PAS");
                    
         if(other.gameObject.tag=="reception"){
             levelManager.Instance.comparerDrinks();
@@ -14,6 +15,7 @@ public class mugCollider : MonoBehaviour
         if(other.gameObject.layer == 7){
             Debug.Log("collision7");
             Destroy(other.gameObject);
+        Debug.Log(other + "AFFAIRE QUI AMRHCE PAS ????????????????");
 
             levelManager.Instance.addElement(other.gameObject.name);
         }

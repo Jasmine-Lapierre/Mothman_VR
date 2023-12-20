@@ -12,6 +12,8 @@ public class levelManager : MonoBehaviour
     [SerializeField] private GameObject[] menuItems;
 
     [SerializeField] private GameObject prefabAnimation;
+    public GameObject positonmug;
+
     public string monstre;
 public class Recette
 { 
@@ -177,7 +179,7 @@ if(MenuTag.transform.GetChild(i).gameObject.activeSelf ==false){
 public void addElement(string elementName){
 
 GameObject MugTag = GameObject.FindGameObjectWithTag("mug");
-Transform[] children = MugTag.GetComponentsInChildren<Transform>();
+Transform[] children = MugTag.GetComponentsInChildren<Transform>(true);
 for(int i = 0; i < children.Length+1; i++){
     Debug.Log(MugTag.transform.GetChild(i).gameObject.name + "   " +elementName );
 if(MugTag.transform.GetChild(i).gameObject.name == elementName){
@@ -243,16 +245,21 @@ public void comparerDrinks(){
 
 
 
-
+          GameObject[] MugTagArr;
+        MugTagArr = GameObject.FindGameObjectsWithTag("mug");
 
     if(comparaisonlist.Count == listofCurrentOrder.Count){
         Debug.Log("C'est pareil");
+
+        MugTagArr[0].transform.position = positonmug.transform.position;
         GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
         Animator monstreAnimationActuel = monstreActuel.GetComponent<Animator>();
         monstreAnimationActuel.Play("sortie");
 
     }else{
         Debug.Log("C'est pas pareil");
+                MugTagArr[0].transform.position = positonmug.transform.position;
+
     }
 }
 }
