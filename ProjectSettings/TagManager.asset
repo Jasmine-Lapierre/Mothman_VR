@@ -12,6 +12,7 @@ TagManager:
   - element
   - trash
   - reception
+  - menu
   layers:
   - Default
   - TransparentFX

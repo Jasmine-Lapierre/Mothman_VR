@@ -8,7 +8,9 @@ public class levelManager : MonoBehaviour
 {
      [Header("References")]
     [SerializeField] private GameObject[] floatsPrefabs;
-    [SerializeField] private GameObject[] floatsJar;
+    [SerializeField] private GameObject[] floatsJar;  
+    [SerializeField] private GameObject[] menuItems;
+
     public string monstre;
 public class Recette
 { 
@@ -100,13 +102,16 @@ listofEverythingelse.Add(RecettesSpecialisees[i]);
 for (int i = 0; i < listofEverythingelse.Count; i++){
     int index = r.Next(0,2);
     if (index==0){
+    afficherCommandeMenu(listofEverythingelse[i].Name);
+Debug.Log( listofEverythingelse[i].Name + "voici le nom d'un ingrédient");
       listofCurrentOrder.Add(listofEverythingelse[i]);
     }
 }
 
     int affaireindex = r.Next(0,listofLiquids.Count());
     listofCurrentOrder.Add(listofLiquids[affaireindex]);
-
+      afficherCommandeMenu(listofLiquids[affaireindex].Name);
+    Debug.Log(listofLiquids[affaireindex].Name + " Voici le nom du liquide");
 
 }
 public void afficherCommande(List<Recette> commande){
@@ -148,7 +153,21 @@ public void creationFloat(string floatsName)
 
     }
 
+public void afficherCommandeMenu(string elementName){
+    GameObject MenuTag = GameObject.FindGameObjectWithTag("menu");
+Transform[] children = MenuTag.GetComponentsInChildren<Transform>(true);
+Debug.Log(children + "Longueur " +children.Length );
+for(int i = 0; i < children.Length-1; i++){
+    Debug.Log(MenuTag.transform.GetChild(i).gameObject.name + " ?????  " +elementName );
+if(MenuTag.transform.GetChild(i).gameObject.name == elementName){
+if(MenuTag.transform.GetChild(i).gameObject.activeSelf ==false){
 
+   Debug.Log(MenuTag.transform.GetChild(i).gameObject.name + " = " + elementName);
+    MenuTag.transform.GetChild(i).gameObject.SetActive(true);} 
+
+}
+
+}}
 public void addElement(string elementName){
 
 GameObject MugTag = GameObject.FindGameObjectWithTag("mug");
@@ -165,13 +184,15 @@ if(MugTag.transform.GetChild(i).gameObject.activeSelf ==false){
  });
 afficherCommande(listofCurrentDrink);
    Debug.Log(MugTag.transform.GetChild(i).gameObject.name + " = " + elementName);
-    MugTag.transform.GetChild(i).gameObject.SetActive(true);} else{
+    MugTag.transform.GetChild(i).gameObject.SetActive(true);} 
+    else{
         afficherCommande(listofCurrentDrink);
 
     }
 } 
 }
 }
+
 public void addLiquid(string elementName){
 List<Recette> isLiquid = new List<Recette>();
 for(int i = 0; i<listofCurrentDrink.Count; i++){
