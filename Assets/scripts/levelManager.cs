@@ -11,6 +11,7 @@ public class levelManager : MonoBehaviour
     [SerializeField] private GameObject[] floatsJar;  
     [SerializeField] private GameObject[] menuItems;
 
+    [SerializeField] private GameObject prefabAnimation;
     public string monstre;
 public class Recette
 { 
@@ -39,12 +40,14 @@ listofRecettes.AddRange(new List<Recette>
     new Recette("brain", "zombie","float" ),
     new Recette("blood","zombie", "liquid" ),
     new Recette("flesh","zombie", "liquid" ),
+    new Recette("bone","zombie", "liquid" ),
     new Recette("lantern","mothman", "float" ),
     new Recette("lightbulb","mothman", "float" ),
     new Recette("lighterFluid","mothman", "liquid" ),
     new Recette("cocoonNectar","mothman", "liquid" ),
     new Recette("chlorophyll","mothman", "liquid" ),
     new Recette("ectoplasm","ghost", "float" ),
+     new Recette("ectoplasmJuice","ghost", "liquid" ),
     new Recette("ouijaPlanchette","ghost", "float" ),
     new Recette("booJuice","ghost", "liquid" ),
     new Recette("poltergeistSyrup","ghost", "liquid" ),
@@ -58,7 +61,10 @@ for (int i = 0; i < listofRecettes.Count; i++){
         return  listofRecettesSpepcialisee;
      }
 public void CreerCommande(){
-    
+    GameObject affairePrefab = Instantiate(prefabAnimation);
+    Animator affaireAnimer = affairePrefab.gameObject.GetComponent<Animator>();
+    affaireAnimer.Play("entree");
+
     Random r = new System.Random();
     int indexMonstre = r.Next(0,3);
     Debug.Log(indexMonstre +  " Voici l'index");
@@ -241,6 +247,10 @@ public void comparerDrinks(){
 
     if(comparaisonlist.Count == listofCurrentOrder.Count){
         Debug.Log("C'est pareil");
+        GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
+        Animator monstreAnimationActuel = monstreActuel.GetComponent<Animator>();
+        monstreAnimationActuel.Play("sortie");
+
     }else{
         Debug.Log("C'est pas pareil");
     }
