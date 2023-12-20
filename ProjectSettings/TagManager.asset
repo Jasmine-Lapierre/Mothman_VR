@@ -13,6 +13,7 @@ TagManager:
   - trash
   - reception
   - menu
+  - monstreClient
   layers:
   - Default
   - TransparentFX
