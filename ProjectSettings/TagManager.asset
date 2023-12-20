@@ -20,6 +20,7 @@ TagManager:
   - lightbulb
   - ectoplasm
   - ouijaPlanchette
+  - player_hand
   layers:
   - Default
   - TransparentFX
