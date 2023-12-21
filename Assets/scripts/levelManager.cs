@@ -12,14 +12,7 @@ public class levelManager : MonoBehaviour
     [SerializeField] private GameObject[] menuItems;
 
     [SerializeField] private GameObject[] prefabAnimation;
-
-    [SerializeField] private AudioClip[] sonsApparition;
-    [SerializeField] private AudioClip[] sonsReussite;
-    [SerializeField] private AudioClip[] sonsDefaite;
-    [SerializeField] private AudioSource source;
     public GameObject positonmug;
-
-    public int monsterIndex;
 
     public string monstre;
 public class Recette
@@ -71,9 +64,9 @@ for (int i = 0; i < listofRecettes.Count; i++){
      }
 
 public void CacherCreature(){
-  /*  foreach(GameObject Creature in prefabAnimation){
+    foreach(GameObject Creature in prefabAnimation){
         Creature.SetActive(false);
-    } */
+    }
 }
 public void CreerCommande(){
     CacherCreature();
@@ -82,20 +75,19 @@ public void CreerCommande(){
 
     Random r = new System.Random();
     int indexMonstre = r.Next(0,3);
-    monsterIndex = indexMonstre;
     Debug.Log(indexMonstre +  " Voici l'index");
     switch (indexMonstre)
     {
         case 0:
-        prefabAnimation[1].SetActive(true);
+        prefabAnimation[2].SetActive(true);
         monstre="mothman";
         break;
         case 1:
-        prefabAnimation[1].SetActive(true);
+        prefabAnimation[2].SetActive(true);
         monstre="zombie";
         break;
         case 2: 
-        prefabAnimation[1].SetActive(true);
+        prefabAnimation[2].SetActive(true);
         monstre="ghost";
         break;
         
@@ -274,7 +266,6 @@ public void comparerDrinks(){
 
     if(comparaisonlist.Count == listofCurrentOrder.Count){
         Debug.Log("C'est pareil");
-        source.PlayOneShot(sonsReussite[monsterIndex]);
         CreerCommande();
         MugTagArr[0].transform.position = positonmug.transform.position;
        /* GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
@@ -283,7 +274,6 @@ public void comparerDrinks(){
 
     }else{
         Debug.Log("C'est pas pareil");
-        source.PlayOneShot(sonsDefaite[monsterIndex]);
                 MugTagArr[0].transform.position = positonmug.transform.position;
 
     }
