@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0066103125, g: 0.005365536, b: 0.0053823446, a: 1}
+  m_IndirectSpecularColor: {r: 0.006600787, g: 0.005356002, b: 0.0053706677, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -46322,8 +46322,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5e3ccb9e55fd844892dbce756e9b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatsPrefabs: []
-  floatsJar: []
+  floatsPrefabs:
+  - {fileID: 2701905220376500937, guid: 0fea34eddbe2b2a44ba9f3dd441dbf67, type: 3}
+  - {fileID: 4338793664144343841, guid: fb85e8ffa3844be458719d656d702043, type: 3}
+  - {fileID: 6012241515514989153, guid: 7c122127613beac4391e019906829e7b, type: 3}
+  - {fileID: 348777234775825653, guid: 79e570218a3359b4fb079e65ee366ecb, type: 3}
+  - {fileID: 73410360126294034, guid: 9e34b4ab28333294cb7c873b9c61d32e, type: 3}
+  - {fileID: 6484028698257419198, guid: f28dab31424aa784f9cba873ceb29aec, type: 3}
+  floatsJar:
+  - {fileID: 1102114983}
+  - {fileID: 321883206}
+  - {fileID: 1697329281}
+  - {fileID: 1070830338}
+  - {fileID: 862128862}
+  - {fileID: 866816238}
   menuItems: []
   prefabAnimation:
   - {fileID: 837970157}
@@ -54036,7 +54048,7 @@ Transform:
   m_GameObject: {fileID: 919132148115802171}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.242, y: 1.666, z: 0.642}
+  m_LocalPosition: {x: -1.863, y: 1.666, z: 2.932}
   m_LocalScale: {x: 17.792667, y: 17.792667, z: 17.792667}
   m_ConstrainProportionsScale: 0
   m_Children:
