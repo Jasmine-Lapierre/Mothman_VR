@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0065978323, g: 0.0053534834, b: 0.0053689787, a: 1}
+  m_IndirectSpecularColor: {r: 0.006600787, g: 0.005356002, b: 0.0053706677, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -39726,33 +39726,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1721048823}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1714951504
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714951501}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1714951505
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39772,8 +39745,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.019339832, y: 0.053912442, z: 0.026246006}
-  m_Center: {x: -0.005258318, y: 0.026500717, z: -0.00005071979}
+  m_Size: {x: 0.030065028, y: 0.05391244, z: 0.026246006}
+  m_Center: {x: -0.010620922, y: 0.026500724, z: -0.000050720246}
 --- !u!1001 &1720114945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40136,10 +40109,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1721048826}
-    - targetCorrespondingSourceObject: {fileID: -3897070543569758900, guid: 73f77af2db134cc419615d0137ffd894,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1714951504}
     - targetCorrespondingSourceObject: {fileID: -3897070543569758900, guid: 73f77af2db134cc419615d0137ffd894,
         type: 3}
       insertIndex: -1
@@ -46351,6 +46320,7 @@ MonoBehaviour:
     type: 3}
   monsterIndex: 0
   monstre: 
+  menu: {fileID: 621360286}
 --- !u!4 &1825684018
 Transform:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class mugCollider : MonoBehaviour
             GameObject MugTag = GameObject.FindGameObjectWithTag("mug");
              GameObject liquide = GameObject.FindGameObjectWithTag("liquide");
     Destroy(liquide);
-            Transform[] children = MugTag.GetComponentsInChildren<Transform>();
+            Transform[] children = MugTag.GetComponentsInChildren<Transform>(true);
             for(int i = 0; i < children.Length; i++){
                 MugTag.transform.GetChild(i).gameObject.SetActive(false);
             }

@@ -24,6 +24,8 @@ public class levelManager : MonoBehaviour
     public int monsterIndex;
 
     public string monstre;
+        public GameObject menu;
+
 public class Recette
 { 
     public string Name;
@@ -73,12 +75,15 @@ for (int i = 0; i < listofRecettes.Count; i++){
      }
 
 public void CacherCreature(){
-  /*  foreach(GameObject Creature in prefabAnimation){
+    Transform[] children = menu.GetComponentsInChildren<Transform>(true);
+    for(int i = 0; i < children.Length-1; i++){
+    menu.transform.GetChild(i).gameObject.SetActive(false);
+    } 
+    foreach(GameObject Creature in prefabAnimation){
         Creature.SetActive(false);
-    } */
+    } 
 }
 public void CreerCommande(){
-    CacherCreature();
 
     Random r = new System.Random();
     int indexMonstre = r.Next(0,3);
@@ -198,6 +203,7 @@ if(MenuTag.transform.GetChild(i).gameObject.activeSelf ==false){
     MenuTag.transform.GetChild(i).gameObject.SetActive(true);} 
 
 }
+
 
 }}
 public void addElement(string elementName){
@@ -330,6 +336,8 @@ public void comparerDrinks(){
   private IEnumerator WaitAndHide(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+            CacherCreature();
+
         CreerCommande();
 
     }
