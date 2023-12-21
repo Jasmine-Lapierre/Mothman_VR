@@ -13,6 +13,8 @@ public class levelManager : MonoBehaviour
 
     [SerializeField] private GameObject[] prefabAnimation;
     public GameObject positonmug;
+   public bool IsLiquidwhar = false;
+    public GameObject prefabLiquide;
 
     public string monstre;
 public class Recette
@@ -194,7 +196,7 @@ if(MenuTag.transform.GetChild(i).gameObject.activeSelf ==false){
 }}
 public void addElement(string elementName){
 
-GameObject MugTag = GameObject.FindGameObjectWithTag("mug");
+ GameObject MugTag = GameObject.FindGameObjectWithTag("mug");
 Transform[] children = MugTag.GetComponentsInChildren<Transform>(true);
 for(int i = 0; i < children.Length+1; i++){
     Debug.Log(MugTag.transform.GetChild(i).gameObject.name + "   " +elementName );
@@ -216,6 +218,26 @@ afficherCommande(listofCurrentDrink);
 } 
 }
 }
+public void changeLiquidColor(string Couleur){
+
+if(!IsLiquidwhar){
+    IsLiquidwhar = true;
+    GameObject[] MugTagArr;
+//string[] rgba = Couleur.Split(",");
+
+ MugTagArr = GameObject.FindGameObjectsWithTag("mug");
+
+GameObject liquide = Instantiate(prefabLiquide , MugTagArr[0].transform, worldPositionStays:false);
+/*Debug.Log("VOICI le saffaires COULEUR "+ rgba[0]+" "+rgba[1]+" "+rgba[2]);*/
+ Color newCol;
+if(ColorUtility.TryParseHtmlString(Couleur, out newCol)){
+
+liquide.GetComponent<Renderer>().material.color = newCol;
+
+}
+//liquide.GetComponent<Renderer>().material.color = new Color(float.Parse(rgba[0]),float.Parse(rgba[1]),float.Parse(rgba[2]));
+
+}}
 
 public void addLiquid(string elementName){
 List<Recette> isLiquid = new List<Recette>();
@@ -225,6 +247,10 @@ if(listofCurrentDrink[i].Type =="liquid"){
 }}
 if(isLiquid == null || isLiquid.Count< 1){
 {
+    
+          
+
+
 listofCurrentDrink.AddRange(new List<Recette>
 {
     new Recette(elementName,"","liquid" ),
@@ -262,7 +288,7 @@ public void comparerDrinks(){
 
 
           GameObject[] MugTagArr;
-        MugTagArr = GameObject.FindGameObjectsWithTag("mug");
+       MugTagArr = GameObject.FindGameObjectsWithTag("mug");
 
     if(comparaisonlist.Count == listofCurrentOrder.Count){
         Debug.Log("C'est pareil");

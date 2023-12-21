@@ -21,6 +21,7 @@ TagManager:
   - ectoplasm
   - ouijaPlanchette
   - player_hand
+  - liquide
   layers:
   - Default
   - TransparentFX

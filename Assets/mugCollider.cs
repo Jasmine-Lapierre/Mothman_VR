@@ -20,8 +20,11 @@ public class mugCollider : MonoBehaviour
             levelManager.Instance.addElement(other.gameObject.name);
         }
         if(other.gameObject.tag =="trash"){
+            levelManager.Instance.IsLiquidwhar = false;
             levelManager.Instance.listofCurrentDrink.Clear();
             GameObject MugTag = GameObject.FindGameObjectWithTag("mug");
+             GameObject liquide = GameObject.FindGameObjectWithTag("liquide");
+    Destroy(liquide);
             Transform[] children = MugTag.GetComponentsInChildren<Transform>();
             for(int i = 0; i < children.Length; i++){
                 MugTag.transform.GetChild(i).gameObject.SetActive(false);
