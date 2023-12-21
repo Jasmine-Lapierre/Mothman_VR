@@ -18,6 +18,8 @@ public class levelManager : MonoBehaviour
     [SerializeField] private AudioClip[] sonsDefaite;
     [SerializeField] private AudioSource source;
     public GameObject positonmug;
+      public bool IsLiquidwhar = false;
+    public GameObject prefabLiquide;
 
     public int monsterIndex;
 
@@ -224,7 +226,26 @@ afficherCommande(listofCurrentDrink);
 } 
 }
 }
+public void changeLiquidColor(string Couleur){
 
+if(!IsLiquidwhar){
+    IsLiquidwhar = true;
+    GameObject[] MugTagArr;
+//string[] rgba = Couleur.Split(",");
+
+ MugTagArr = GameObject.FindGameObjectsWithTag("mug");
+
+GameObject liquide = Instantiate(prefabLiquide , MugTagArr[0].transform, worldPositionStays:false);
+/*Debug.Log("VOICI le saffaires COULEUR "+ rgba[0]+" "+rgba[1]+" "+rgba[2]);*/
+ Color newCol;
+if(ColorUtility.TryParseHtmlString(Couleur, out newCol)){
+
+liquide.GetComponent<Renderer>().material.color = newCol;
+
+}
+//liquide.GetComponent<Renderer>().material.color = new Color(float.Parse(rgba[0]),float.Parse(rgba[1]),float.Parse(rgba[2]));
+
+}}
 public void addLiquid(string elementName){
 List<Recette> isLiquid = new List<Recette>();
 for(int i = 0; i<listofCurrentDrink.Count; i++){
