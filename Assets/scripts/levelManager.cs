@@ -79,8 +79,6 @@ public void CacherCreature(){
 }
 public void CreerCommande(){
     CacherCreature();
-    Animator affaireAnimer = prefabAnimation[2].GetComponent<Animator>();
-    affaireAnimer.Play("ghostAnim");
 
     Random r = new System.Random();
     int indexMonstre = r.Next(0,3);
@@ -93,11 +91,11 @@ public void CreerCommande(){
         monstre="mothman";
         break;
         case 1:
-        prefabAnimation[0].SetActive(true);
+        prefabAnimation[1].SetActive(true);
         monstre="zombie";
         break;
         case 2: 
-        prefabAnimation[0].SetActive(true);
+        prefabAnimation[2].SetActive(true);
         monstre="ghost";
         break;
         
@@ -295,6 +293,25 @@ public void comparerDrinks(){
 
     if(comparaisonlist.Count == listofCurrentOrder.Count){
         Debug.Log("C'est pareil");
+        Animator affaireAnimer = prefabAnimation[monsterIndex].GetComponent<Animator>();
+
+        switch(monsterIndex){
+            case 0:
+                affaireAnimer.Play("mothman_sort");
+
+            break;
+            case 1:
+                affaireAnimer.Play("zombie_disappear");
+
+            break;
+            case 2:
+                affaireAnimer.Play("ghost_disappear");
+
+            break;
+
+        }
+
+
         source.PlayOneShot(sonsReussite[monsterIndex]);
         CreerCommande();
         MugTagArr[0].transform.position = positonmug.transform.position;
@@ -303,6 +320,26 @@ public void comparerDrinks(){
         monstreAnimationActuel.Play("sortie"); */
 
     }else{
+
+        Animator affaireAnimer = prefabAnimation[monsterIndex].GetComponent<Animator>();
+
+        switch(monsterIndex){
+            case 0:
+                affaireAnimer.Play("mothman_sort");
+
+            break;
+            case 1:
+                affaireAnimer.Play("zombie_disappear");
+
+            break;
+            case 2:
+                affaireAnimer.Play("ghost_disappear");
+
+            break;
+
+        }
+
+
         Debug.Log("C'est pas pareil");
         source.PlayOneShot(sonsDefaite[monsterIndex]);
                 MugTagArr[0].transform.position = positonmug.transform.position;
