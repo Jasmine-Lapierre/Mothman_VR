@@ -63,9 +63,9 @@ for (int i = 0; i < listofRecettes.Count; i++){
         return  listofRecettesSpepcialisee;
      }
 public void CreerCommande(){
-    GameObject affairePrefab = Instantiate(prefabAnimation);
+    /*GameObject affairePrefab = Instantiate(prefabAnimation);
     Animator affaireAnimer = affairePrefab.gameObject.GetComponent<Animator>();
-    affaireAnimer.Play("entree");
+    affaireAnimer.Play("entree");*/
 
     Random r = new System.Random();
     int indexMonstre = r.Next(0,3);
