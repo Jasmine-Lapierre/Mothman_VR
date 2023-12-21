@@ -70,9 +70,8 @@ public void CacherCreature(){
 }
 public void CreerCommande(){
     CacherCreature();
-    GameObject affairePrefab = Instantiate(prefabAnimation[0]);
-    Animator affaireAnimer = affairePrefab.gameObject.GetComponent<Animator>();
-    affaireAnimer.Play("entree");
+    Animator affaireAnimer = prefabAnimation[2].GetComponent<Animator>();
+    affaireAnimer.Play("ghostAnim");
 
     Random r = new System.Random();
     int indexMonstre = r.Next(0,3);
@@ -80,14 +79,14 @@ public void CreerCommande(){
     switch (indexMonstre)
     {
         case 0:
-        prefabAnimation[0].SetActive(true);
+        prefabAnimation[2].SetActive(true);
         monstre="mothman";
         break;
         case 1:
-        prefabAnimation[1].SetActive(true);
+        prefabAnimation[2].SetActive(true);
         monstre="zombie";
         break;
-        case 2:
+        case 2: 
         prefabAnimation[2].SetActive(true);
         monstre="ghost";
         break;
