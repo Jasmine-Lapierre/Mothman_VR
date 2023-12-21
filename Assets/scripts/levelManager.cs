@@ -87,15 +87,15 @@ public void CreerCommande(){
     switch (indexMonstre)
     {
         case 0:
-        prefabAnimation[1].SetActive(true);
+        prefabAnimation[0].SetActive(true);
         monstre="mothman";
         break;
         case 1:
-        prefabAnimation[1].SetActive(true);
+        prefabAnimation[0].SetActive(true);
         monstre="zombie";
         break;
         case 2: 
-        prefabAnimation[1].SetActive(true);
+        prefabAnimation[0].SetActive(true);
         monstre="ghost";
         break;
         
