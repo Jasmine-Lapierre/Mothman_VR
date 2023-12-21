@@ -310,10 +310,9 @@ public void comparerDrinks(){
             break;
 
         }
-
+        StartCoroutine(WaitAndHide(2f));
 
         source.PlayOneShot(sonsReussite[monsterIndex]);
-        CreerCommande();
         MugTagArr[0].transform.position = positonmug.transform.position;
        /* GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
         Animator monstreAnimationActuel = monstreActuel.GetComponent<Animator>();
@@ -321,29 +320,17 @@ public void comparerDrinks(){
 
     }else{
 
-        Animator affaireAnimer = prefabAnimation[monsterIndex].GetComponent<Animator>();
-
-        switch(monsterIndex){
-            case 0:
-                affaireAnimer.Play("mothman_sort");
-
-            break;
-            case 1:
-                affaireAnimer.Play("zombie_disappear");
-
-            break;
-            case 2:
-                affaireAnimer.Play("ghost_disappear");
-
-            break;
-
-        }
-
-
         Debug.Log("C'est pas pareil");
         source.PlayOneShot(sonsDefaite[monsterIndex]);
                 MugTagArr[0].transform.position = positonmug.transform.position;
 
     }
 }
+
+  private IEnumerator WaitAndHide(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        CreerCommande();
+
+    }
 }
