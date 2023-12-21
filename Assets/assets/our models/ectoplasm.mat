@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EMISSION_COLOR_MAP:
-        m_Texture: {fileID: 2800000, guid: 56bc3e939a332b542a379173ce495846, type: 3}
+        m_Texture: {fileID: 2800000, guid: e6ed72bb522591b4daade17104e54c67, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _METALNESS_MAP:
@@ -109,7 +109,7 @@ Material:
     - _COAT_IOR: 1.4
     - _COAT_ROUGHNESS: 0.568
     - _COAT_THICKNESS: 50
-    - _COAT_WEIGHT: 0.871
+    - _COAT_WEIGHT: 0.792
     - _CoatMask: 0
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
