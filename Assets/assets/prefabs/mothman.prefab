@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 8869133269966758276}
   m_Layer: 0
   m_Name: mothman
-  m_TagString: Untagged
+  m_TagString: monstreClient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2385,9 +2385,10 @@ GameObject:
   m_Component:
   - component: {fileID: 951281349073654496}
   - component: {fileID: 5614862493219586826}
+  - component: {fileID: 8149676831601484160}
   m_Layer: 0
   m_Name: group_pasted__pPlane1
-  m_TagString: Untagged
+  m_TagString: reception
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2469,6 +2470,28 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.000029893825, y: 0.012877215, z: -0.006200049}
     m_Extent: {x: 0.005112674, y: 0.016730063, z: 0.010789303}
   m_DirtyAABB: 0
+--- !u!64 &8149676831601484160
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7425524754554129427}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &7506242375868748449
 GameObject:
   m_ObjectHideFlags: 0

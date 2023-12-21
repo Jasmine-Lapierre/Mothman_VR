@@ -141,7 +141,9 @@ for(int i =0; i<commande.Count; i++){
  IDictionary<string, GameObject> floatPrefabsStringToGameObject = new Dictionary<string, GameObject>();
  void Start(){
 CreerCommande();
-
+     /*   GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
+        Animator monstreAnimationActuel = monstreActuel.GetComponent<Animator>();*/
+  //      monstreAnimationActuel.Play("entree");
 
 afficherCommande(listofCurrentOrder);
 
@@ -150,8 +152,11 @@ afficherCommande(listofCurrentOrder);
 for (int i = 0;i < floatsPrefabs.Length; i++){
 
 floatPrefabsStringToGameObject.Add(floatsJar[i].tag , floatsPrefabs[i]);
-		foreach(KeyValuePair<string, GameObject> kvp in floatPrefabsStringToGameObject);
-            
+		foreach(KeyValuePair<string, GameObject> kvp in floatPrefabsStringToGameObject){
+            Debug.Log(kvp.Value + " index:" + i);
+
+
+        };
             }}
 
 public void creationFloat(string floatsName)
