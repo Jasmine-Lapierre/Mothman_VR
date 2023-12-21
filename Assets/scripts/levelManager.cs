@@ -11,7 +11,7 @@ public class levelManager : MonoBehaviour
     [SerializeField] private GameObject[] floatsJar;  
     [SerializeField] private GameObject[] menuItems;
 
-    [SerializeField] private GameObject prefabAnimation;
+    [SerializeField] private GameObject[] prefabAnimation;
     public GameObject positonmug;
 
     public string monstre;
@@ -62,10 +62,16 @@ for (int i = 0; i < listofRecettes.Count; i++){
 }
         return  listofRecettesSpepcialisee;
      }
+
+public void CacherCreature(){
+    foreach(GameObject Creature in prefabAnimation){
+        Creature.SetActive(false);
+    }
+}
 public void CreerCommande(){
-    /*GameObject affairePrefab = Instantiate(prefabAnimation);
-    Animator affaireAnimer = affairePrefab.gameObject.GetComponent<Animator>();
-    affaireAnimer.Play("entree");*/
+    CacherCreature();
+    Animator affaireAnimer = prefabAnimation[2].GetComponent<Animator>();
+    affaireAnimer.Play("ghostAnim");
 
     Random r = new System.Random();
     int indexMonstre = r.Next(0,3);
@@ -73,12 +79,15 @@ public void CreerCommande(){
     switch (indexMonstre)
     {
         case 0:
+        prefabAnimation[2].SetActive(true);
         monstre="mothman";
         break;
         case 1:
+        prefabAnimation[2].SetActive(true);
         monstre="zombie";
         break;
-        case 2:
+        case 2: 
+        prefabAnimation[2].SetActive(true);
         monstre="ghost";
         break;
         
@@ -140,10 +149,12 @@ for(int i =0; i<commande.Count; i++){
 
  IDictionary<string, GameObject> floatPrefabsStringToGameObject = new Dictionary<string, GameObject>();
  void Start(){
+    CacherCreature();
 CreerCommande();
-     /*   GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
-        Animator monstreAnimationActuel = monstreActuel.GetComponent<Animator>();*/
-  //      monstreAnimationActuel.Play("entree");
+       /* GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
+        Animator monstreAnimationActuel = monstreActuel.GetComponent<Animator>();
+        monstreAnimationActuel.Play("entree"); */
+
 
 afficherCommande(listofCurrentOrder);
 
@@ -255,11 +266,11 @@ public void comparerDrinks(){
 
     if(comparaisonlist.Count == listofCurrentOrder.Count){
         Debug.Log("C'est pareil");
-
+        CreerCommande();
         MugTagArr[0].transform.position = positonmug.transform.position;
-        GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
+       /* GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
         Animator monstreAnimationActuel = monstreActuel.GetComponent<Animator>();
-        monstreAnimationActuel.Play("sortie");
+        monstreAnimationActuel.Play("sortie"); */
 
     }else{
         Debug.Log("C'est pas pareil");
