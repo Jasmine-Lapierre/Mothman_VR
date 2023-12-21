@@ -12,9 +12,14 @@ public class levelManager : MonoBehaviour
     [SerializeField] private GameObject[] menuItems;
 
     [SerializeField] private GameObject[] prefabAnimation;
+
+    [SerializeField] private AudioClip[] sonsApparition;
+    [SerializeField] private AudioClip[] sonsReussite;
+    [SerializeField] private AudioClip[] sonsDefaite;
+    [SerializeField] private AudioSource source;
     public GameObject positonmug;
-   public bool IsLiquidwhar = false;
-    public GameObject prefabLiquide;
+
+    public int monsterIndex;
 
     public string monstre;
 public class Recette
@@ -66,9 +71,9 @@ for (int i = 0; i < listofRecettes.Count; i++){
      }
 
 public void CacherCreature(){
-    foreach(GameObject Creature in prefabAnimation){
+  /*  foreach(GameObject Creature in prefabAnimation){
         Creature.SetActive(false);
-    }
+    } */
 }
 public void CreerCommande(){
     CacherCreature();
@@ -77,19 +82,20 @@ public void CreerCommande(){
 
     Random r = new System.Random();
     int indexMonstre = r.Next(0,3);
+    monsterIndex = indexMonstre;
     Debug.Log(indexMonstre +  " Voici l'index");
     switch (indexMonstre)
     {
         case 0:
-        prefabAnimation[2].SetActive(true);
+        prefabAnimation[0].SetActive(true);
         monstre="mothman";
         break;
         case 1:
-        prefabAnimation[2].SetActive(true);
+        prefabAnimation[0].SetActive(true);
         monstre="zombie";
         break;
         case 2: 
-        prefabAnimation[2].SetActive(true);
+        prefabAnimation[0].SetActive(true);
         monstre="ghost";
         break;
         
@@ -196,7 +202,7 @@ if(MenuTag.transform.GetChild(i).gameObject.activeSelf ==false){
 }}
 public void addElement(string elementName){
 
- GameObject MugTag = GameObject.FindGameObjectWithTag("mug");
+GameObject MugTag = GameObject.FindGameObjectWithTag("mug");
 Transform[] children = MugTag.GetComponentsInChildren<Transform>(true);
 for(int i = 0; i < children.Length+1; i++){
     Debug.Log(MugTag.transform.GetChild(i).gameObject.name + "   " +elementName );
@@ -218,26 +224,6 @@ afficherCommande(listofCurrentDrink);
 } 
 }
 }
-public void changeLiquidColor(string Couleur){
-
-if(!IsLiquidwhar){
-    IsLiquidwhar = true;
-    GameObject[] MugTagArr;
-//string[] rgba = Couleur.Split(",");
-
- MugTagArr = GameObject.FindGameObjectsWithTag("mug");
-
-GameObject liquide = Instantiate(prefabLiquide , MugTagArr[0].transform, worldPositionStays:false);
-/*Debug.Log("VOICI le saffaires COULEUR "+ rgba[0]+" "+rgba[1]+" "+rgba[2]);*/
- Color newCol;
-if(ColorUtility.TryParseHtmlString(Couleur, out newCol)){
-
-liquide.GetComponent<Renderer>().material.color = newCol;
-
-}
-//liquide.GetComponent<Renderer>().material.color = new Color(float.Parse(rgba[0]),float.Parse(rgba[1]),float.Parse(rgba[2]));
-
-}}
 
 public void addLiquid(string elementName){
 List<Recette> isLiquid = new List<Recette>();
@@ -247,10 +233,6 @@ if(listofCurrentDrink[i].Type =="liquid"){
 }}
 if(isLiquid == null || isLiquid.Count< 1){
 {
-    
-          
-
-
 listofCurrentDrink.AddRange(new List<Recette>
 {
     new Recette(elementName,"","liquid" ),
@@ -288,10 +270,11 @@ public void comparerDrinks(){
 
 
           GameObject[] MugTagArr;
-       MugTagArr = GameObject.FindGameObjectsWithTag("mug");
+        MugTagArr = GameObject.FindGameObjectsWithTag("mug");
 
     if(comparaisonlist.Count == listofCurrentOrder.Count){
         Debug.Log("C'est pareil");
+        source.PlayOneShot(sonsReussite[monsterIndex]);
         CreerCommande();
         MugTagArr[0].transform.position = positonmug.transform.position;
        /* GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
@@ -300,6 +283,7 @@ public void comparerDrinks(){
 
     }else{
         Debug.Log("C'est pas pareil");
+        source.PlayOneShot(sonsDefaite[monsterIndex]);
                 MugTagArr[0].transform.position = positonmug.transform.position;
 
     }
