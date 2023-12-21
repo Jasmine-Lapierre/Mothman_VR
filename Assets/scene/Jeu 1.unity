@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0066096047, g: 0.0053653424, b: 0.0053818603, a: 1}
+  m_IndirectSpecularColor: {r: 0.0066071125, g: 0.0053635244, b: 0.005381048, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10489,33 +10489,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505673705}
   m_CullTransparentMesh: 1
---- !u!1 &1547232732 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2702818963442674533, guid: f7577621eaed95e44a0bdf2c4458e65c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6866651997437375983}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1547232734
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547232732}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b8e8c33ef895c44cb59dedc625cdea7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1592746071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12466,6 +12439,8 @@ MonoBehaviour:
   - {fileID: 1470606302}
   - {fileID: 680551282}
   positonmug: {fileID: 2036712077}
+  IsLiquidwhar: 0
+  prefabLiquide: {fileID: 0}
   monstre: 
 --- !u!4 &1825684018
 Transform:
@@ -16079,10 +16054,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1168011519}
-    - targetCorrespondingSourceObject: {fileID: 2702818963442674533, guid: f7577621eaed95e44a0bdf2c4458e65c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1547232734}
     - targetCorrespondingSourceObject: {fileID: 3266682242351988035, guid: f7577621eaed95e44a0bdf2c4458e65c,
         type: 3}
       insertIndex: -1
