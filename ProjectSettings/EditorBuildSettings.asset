@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/scene/menu.unity
     guid: e7fa9211737845e4a91c96b9a8a8127b
   - enabled: 1
+    path: Assets/scene/Jeu 2.unity
+    guid: 11f48e90a1b2fa34eaa6749205f4a607
+  - enabled: 0
     path: Assets/scene/Jeu.unity
     guid: 266743487c2305e479ab0982712038ed
   m_configObjects:
