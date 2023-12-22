@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class mugCollider : MonoBehaviour
 {
-
   public void OnTriggerEnter(Collider other)
     {
         Debug.Log(other + "AFFAIRE QUI AMRHCE PAS");
@@ -13,8 +12,11 @@ public class mugCollider : MonoBehaviour
             levelManager.Instance.comparerDrinks();
         }
         if(other.gameObject.layer == 7){
+            AudioSource audioData = GetComponent<AudioSource>();
+            audioData.Play(0);
             Debug.Log("collision7");
             Destroy(other.gameObject);
+
         Debug.Log(other + "AFFAIRE QUI AMRHCE PAS ????????????????");
 
             levelManager.Instance.addElement(other.gameObject.name);
