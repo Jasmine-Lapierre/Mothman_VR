@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-public class Timer : MonoBehaviour
+public class ordermanager : MonoBehaviour
 {
-    public float timeRemaining = 10;
+    public float timeRemaining = 3;
     public bool timerIsRunning = false;
     public TextMeshProUGUI timeText;
+        public static ordermanager Main;
+
+     void Awake()
+    {
+        Main = this;
+    }
     private void Start()
     {
         // Starts the timer automatically
@@ -28,6 +35,8 @@ public class Timer : MonoBehaviour
                 Debug.Log("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;
+                SceneManager.LoadScene(2);
+
             }
         }
     }

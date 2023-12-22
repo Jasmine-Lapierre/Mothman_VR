@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 using Random = System.Random;
 using System.ComponentModel;
+using UnityEngine.SceneManagement;
+using TMPro;
 public class levelManager : MonoBehaviour
 {
      [Header("References")]
@@ -22,8 +24,9 @@ public class levelManager : MonoBehaviour
     public GameObject positonmug;
       public bool IsLiquidwhar = false;
     public GameObject prefabLiquide;
-
+    public float orderRendue = 15;
     public int monsterIndex;
+    public TextMeshProUGUI clientTexte;
 
     public string monstre;
         public GameObject menu;
@@ -145,7 +148,26 @@ listofEverythingelse.Add(RecettesSpecialisees[i]);
 //Random r = new System.Random();
 /**/
 for (int i = 0; i < listofEverythingelse.Count; i++){
-    int index = r.Next(0,2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    int index = r.Next(0,((int)Mathf.Ceil(orderRendue/2f)));
     if (index==0){
     afficherCommandeMenu(listofEverythingelse[i].Name);
 Debug.Log( listofEverythingelse[i].Name + "voici le nom d'un ingrédient");
@@ -179,6 +201,8 @@ for(int i =0; i<commande.Count; i++){
  void Start(){
     CacherCreature();
 CreerCommande();
+            clientTexte.text = orderRendue.ToString();
+
        /* GameObject monstreActuel = GameObject.FindGameObjectWithTag("monstreClient");
         Animator monstreAnimationActuel = monstreActuel.GetComponent<Animator>();
         monstreAnimationActuel.Play("entree"); */
@@ -318,7 +342,15 @@ public void comparerDrinks(){
 
     if(comparaisonlist.Count == listofCurrentOrder.Count){
  /*      
-}*/
+}*/            if(levelManager.Instance.orderRendue>1){
+            levelManager.Instance.orderRendue -=1;
+            clientTexte.text = orderRendue.ToString();
+            }
+            else{
+            SceneManager.LoadScene(3);
+
+            }
+            ordermanager.Main.timeRemaining=45;
         Debug.Log("C'est pareil");
         Animator affaireAnimer = prefabAnimation[monsterIndex].GetComponent<Animator>();
 
@@ -350,10 +382,16 @@ public void comparerDrinks(){
         Debug.Log("C'est pas pareil");
         source.PlayOneShot(sonsDefaite[monsterIndex]);
                 MugTagArr[0].transform.position = positonmug.transform.position;
-
+StartCoroutine(WaitAndDie(3f));
     }
 }
+  private IEnumerator WaitAndDie(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+               SceneManager.LoadScene(3);
 
+
+    }
   private IEnumerator WaitAndHide(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);

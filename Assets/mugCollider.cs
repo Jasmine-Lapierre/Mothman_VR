@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mugCollider : MonoBehaviour
 {
   public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other + "AFFAIRE QUI AMRHCE PAS");
                    
         if(other.gameObject.tag=="reception"){
             levelManager.Instance.comparerDrinks();

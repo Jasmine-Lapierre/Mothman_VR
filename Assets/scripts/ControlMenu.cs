@@ -8,7 +8,7 @@ public class menuControl : MonoBehaviour
     public GameObject myGameObject;
         public void jouer()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(1);
     }
 
     public void quitterPartie()
