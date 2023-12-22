@@ -17,6 +17,8 @@ public class levelManager : MonoBehaviour
     [SerializeField] private AudioClip[] sonsReussite;
     [SerializeField] private AudioClip[] sonsDefaite;
     [SerializeField] private AudioSource source;
+    public GameObject louche;
+
     public GameObject positonmug;
       public bool IsLiquidwhar = false;
     public GameObject prefabLiquide;
@@ -84,6 +86,19 @@ public void CacherCreature(){
     } 
 }
 public void CreerCommande(){
+ GameObject liquide = GameObject.FindGameObjectWithTag("liquide");
+        Destroy(liquide);
+              GameObject[] floatsEnfants = GameObject.FindGameObjectsWithTag("enfants");
+              levelManager.Instance.IsLiquidwhar = false;
+              levelManager.Instance.listofCurrentDrink.Clear();
+foreach (GameObject tr in floatsEnfants){
+    tr.SetActive(false);
+}
+  /*      Transform[] children = MugTag.GetComponentsInDirectChildren<Transform>();
+        for(int i = 0; i < children.Length; i++){
+            Debug.Log(i + "Voici l'INDEX ");
+        MugTag.transform.GetChild(i).gameObject.SetActive(false);
+        }*/
 
     Random r = new System.Random();
     int indexMonstre = r.Next(0,3);
@@ -185,8 +200,11 @@ floatPrefabsStringToGameObject.Add(floatsJar[i].tag , floatsPrefabs[i]);
 
 public void creationFloat(string floatsName)
     {
- GameObject floatElement = (GameObject) Instantiate(floatPrefabsStringToGameObject[floatsName]);
+        Debug.Log("Voici la longueur: "+louche.GetComponentsInChildren<Transform>().Length);
+        if(louche.GetComponentsInChildren<Transform>().Length<4){
+ GameObject floatElement = (GameObject) Instantiate(floatPrefabsStringToGameObject[floatsName],louche.transform);
  floatElement.name = floatElement.name.Remove(floatElement.name.Length-7);
+ }
 
     }
 
@@ -203,6 +221,7 @@ if(MenuTag.transform.GetChild(i).gameObject.activeSelf ==false){
     MenuTag.transform.GetChild(i).gameObject.SetActive(true);} 
 
 }
+
 
 
 }}
@@ -298,6 +317,8 @@ public void comparerDrinks(){
         MugTagArr = GameObject.FindGameObjectsWithTag("mug");
 
     if(comparaisonlist.Count == listofCurrentOrder.Count){
+ /*      
+}*/
         Debug.Log("C'est pareil");
         Animator affaireAnimer = prefabAnimation[monsterIndex].GetComponent<Animator>();
 
